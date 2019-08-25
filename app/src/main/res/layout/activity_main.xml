@@ -10,7 +10,7 @@
         tools:context=".activities.MainActivity">
 
         <include
-            layout="@layout/view_toolbar"
+            layout="@layout/view_toolbar_center"
             android:id="@+id/toolbar" />
 
         <ScrollView
@@ -19,13 +19,12 @@
                 android:layout_height="match_parent">
 
             <androidx.cardview.widget.CardView
-                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/card_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    card_view:cardBackgroundColor="@color/white"
+                    app:cardBackgroundColor="@color/white"
                     android:layout_margin="5dp"
-                    card_view:cardCornerRadius="4dp">
+                    app:cardCornerRadius="4dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
                                                                android:layout_height="wrap_content">
@@ -56,6 +55,17 @@
                             android:visibility="gone"
                             android:id="@+id/btnSendColor" />
 
+                    <TextView
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginBottom="4dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimary"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textStyle="bold"
+                            android:text="@string/colorWheel"/>
+
                 </LinearLayout>
 
                 <com.flask.colorpicker.ColorPickerView
@@ -66,7 +76,9 @@
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/llBUttons"
-                        android:layout_margin="8dp"/>
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="4dp"/>
 
                 <LinearLayout
                         app:layout_constraintTop_toBottomOf="@id/clrPicker"
@@ -75,7 +87,21 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
+                    <TextView
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginBottom="4dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimary"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textStyle="bold"
+                            android:text="@string/brightness"/>
+
                     <SeekBar
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginBottom="4dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/skBar"
@@ -83,26 +109,55 @@
                             android:progress="100"/>
 
                     <TextView
-                            android:layout_margin="10dp"
-                            android:id="@+id/txColor"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginBottom="4dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/colorPrimary"
-                            android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="Picked Color"/>
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textStyle="bold"
+                            android:text="@string/selectedColor"/>
+
+                    <View
+                            android:layout_width="match_parent"
+                            android:layout_height="8dp"
+                            android:id="@+id/vwSelectedColor"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"/>
+
+                    <TextView
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginBottom="4dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimary"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textStyle="bold"
+                            android:text="@string/colorGradient"/>
 
                 </LinearLayout>
 
                 <uz.shift.colorpicker.LineColorPicker
                         app:layout_constraintTop_toBottomOf="@id/llValues"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        android:id="@+id/lnCOlorPicker"
+                        android:id="@+id/lnColorPicker"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         app:orientation="horizontal"
-                        app:colors="@array/rainbow"
-                        android:layout_margin="8dp"
+                        app:colors="@array/rgbGradient"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="4dp"
                         app:selectedColorIndex="3"/>
+
+                    <include
+                        android:id="@+id/vwButtons"
+                        layout="@layout/view_buttons"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        app:layout_constraintTop_toBottomOf="@id/lnColorPicker"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

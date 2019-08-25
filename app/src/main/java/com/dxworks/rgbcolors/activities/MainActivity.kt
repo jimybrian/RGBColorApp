@@ -17,6 +17,7 @@ import androidx.databinding.DataBindingUtil
 import com.dxworks.rgbcolors.R
 import com.dxworks.rgbcolors.databinding.ActivityMainBinding
 import com.dxworks.rgbcolors.models.ColorItem
+import com.dxworks.rgbcolors.utils.SharedPreferences
 import com.google.gson.Gson
 import com.sirvar.bluetoothkit.BluetoothKit
 import java.io.IOException
@@ -39,20 +40,39 @@ class MainActivity : AppCompatActivity() {
 
     val deviceID = "00001101-0000-1000-8000-00805f9b34fb"
 
+    lateinit var shPref:SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        startActivity(Intent(this@MainActivity, SplashActivity::class.java))
         binding = DataBindingUtil.setContentView(this@MainActivity, R.layout.activity_main)
         setSupportActionBar(binding.toolbar.toolbar)
+        supportActionBar?.title = ""
+
+        shPref = SharedPreferences(this@MainActivity)
+
+        val intialBlue = shPref.readSavedColor()
+//        binding.clrPicker.setColor(intialBlue, true)
+        binding.vwSelectedColor.setBackgroundColor(intialBlue)
+        val brightness = shPref.readBrightness()
+        binding.skBar.progress = brightness
+
+        pickedColor.setColor(intialBlue, binding.skBar.progress)
+
+
+
 
         binding.clrPicker.addOnColorChangedListener { c ->
+            binding.vwSelectedColor.setBackgroundColor(c)
             pickedColor.setColor(c, binding.skBar.progress)
-            sendDataToBluetooth()
+            sendColorToBluetooth(c, binding.skBar.progress)
         }
 
         binding.skBar.setOnSeekBarChangeListener(object:SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 pickedColor.setBrightnessVal(progress)
-                sendDataToBluetooth()
+                shPref.saveBrightness(progress)
+                sendBrightnessToBluetooth()
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -65,18 +85,91 @@ class MainActivity : AppCompatActivity() {
 
         })
 
-        binding.lnCOlorPicker.setOnColorChangedListener { c ->
-            pickedColor.setColor(binding.lnCOlorPicker.color, binding.skBar.progress)
-            sendDataToBluetooth()
+        binding.lnColorPicker.setOnColorChangedListener { c ->
+            binding.vwSelectedColor.setBackgroundColor(c)
+            pickedColor.setColor(binding.lnColorPicker.color, binding.skBar.progress)
+            sendColorToBluetooth(binding.lnColorPicker.color, binding.skBar.progress)
+        }
+
+        //Setup Buttons
+        binding.vwButtons.btnWhite.setOnClickListener { v ->
+            val white = resources.getColor(R.color.white)
+            binding.vwSelectedColor.setBackgroundColor(white)
+            pickedColor.setColor(white, binding.skBar.progress)
+            sendColorToBluetooth(white, binding.skBar.progress)
+        }
+
+        binding.vwButtons.btnOff.setOnClickListener { v ->
+            val black = resources.getColor(R.color.black)
+            binding.vwSelectedColor.setBackgroundColor(black)
+            switchOffLeds()
+        }
+
+        binding.vwButtons.btnRed.setOnClickListener { v ->
+            val red = resources.getColor(R.color.rgbRed)
+            binding.vwSelectedColor.setBackgroundColor(red)
+            pickedColor.setColor(red, binding.skBar.progress)
+            sendColorToBluetooth(red, binding.skBar.progress)
+        }
+
+        binding.vwButtons.btnBlue.setOnClickListener { v ->
+            val blue = resources.getColor(R.color.rgbBlue)
+            binding.vwSelectedColor.setBackgroundColor(blue)
+            pickedColor.setColor(blue, binding.skBar.progress)
+            sendColorToBluetooth(blue, binding.skBar.progress)
+        }
+
+        binding.vwButtons.btnGreen.setOnClickListener { v ->
+            val green = resources.getColor(R.color.rgbGreen)
+            binding.vwSelectedColor.setBackgroundColor(green)
+            pickedColor.setColor(green, binding.skBar.progress)
+            sendColorToBluetooth(green, binding.skBar.progress)
         }
     }
 
-    fun sendDataToBluetooth(){
+    fun switchOffLeds(){
+        try {
+            val black = resources.getColor(R.color.black)
+            pickedColor.setColor(black, 0);
+            val color = Gson().toJson(pickedColor)
+            Log.d("Picked Color", color)
+//            Toast.makeText(this@MainActivity, color, Toast.LENGTH_SHORT).show()
+            if (isBluetoothEnabled && isConnected) {
+                if (hc05Device != null) {
+                    val testString = color
+                    val bytes = testString.toByteArray()
+                    btKit?.write(bytes)
+                }
+            }
+        }catch (e:Exception){
+            Log.d(tag, e.message)
+        }
+    }
+
+    fun sendColorToBluetooth(c:Int, b:Int){
+        try {
+            shPref.saveBrightness(b)
+            shPref.saveColor(c)
+            val color = Gson().toJson(pickedColor)
+            Log.d("Picked Color", color)
+//            Toast.makeText(this@MainActivity, color, Toast.LENGTH_SHORT).show()
+            if (isBluetoothEnabled && isConnected) {
+                if (hc05Device != null) {
+                    val testString = color
+                    val bytes = testString.toByteArray()
+                    btKit?.write(bytes)
+                }
+            }
+        }catch (e:Exception){
+            Log.d(tag, e.message)
+        }
+    }
+
+    fun sendBrightnessToBluetooth(){
         try {
             val color = Gson().toJson(pickedColor)
             Log.d("Picked Color", color)
-            Toast.makeText(this@MainActivity, color, Toast.LENGTH_SHORT).show()
-            binding.txColor.setText(color)
+//            Toast.makeText(this@MainActivity, color, Toast.LENGTH_SHORT).show()
             if (isBluetoothEnabled && isConnected) {
                 if (hc05Device != null) {
                     val testString = color

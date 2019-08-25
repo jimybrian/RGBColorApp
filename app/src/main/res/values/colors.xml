@@ -62,9 +62,9 @@
 
     <color name="black_alpha">#2000</color>
 
-    <color name="colorRed">#B22222</color>
-    <color name="colorBlue">#1E90FF</color>
-    <color name="colorGreen">#32CD32</color>
+    <color name="rgbRed">#ff0000</color>
+    <color name="rgbBlue">#0000ff</color>
+    <color name="rgbGreen">#00ff00</color>
     <color name="colorYellow">#FFFF33</color>
     <color name="colorGrey">#FFA9A7A8</color>
 
@@ -112,6 +112,56 @@
     <color name="color_grey">#9e9e9e</color>
     <color name="color_blue_grey">#607d8b</color>
 
+    <color name="red65"> #ff4d4d</color>
+    <color name="red60"> #ff3333</color>
+    <color name="red55"> #ff1a1a</color>
+    <color name="red50"> #ff0000</color>
+    <color name="red45"> #e60000</color>
+    <color name="red40"> #cc0000</color>
+    <color name="red35"> #b30000</color>
+
+    <color name="blue65"> #4d4dff</color>
+    <color name="blue60"> #3333ff</color>
+    <color name="blue55"> #1a1aff</color>
+    <color name="blue50"> #0000ff</color>
+    <color name="blue45"> #0000e6</color>
+    <color name="blue40"> #0000cc</color>
+    <color name="blue35"> #0000b3</color>
+
+    <color name="green65">#4dff4d</color>
+    <color name="green60">#33ff33</color>
+    <color name="green55">#1aff1a</color>
+    <color name="green50">#00ff00</color>
+    <color name="green45">#00e600</color>
+    <color name="green40">#00cc00</color>
+    <color name="green35">#00b300</color>
+
+    <array name="rgbGradient">
+        <item>@color/red65</item>
+        <item>@color/red60</item>
+        <item>@color/red55</item>
+        <item>@color/red50</item>
+        <item>@color/red45</item>
+        <item>@color/red40</item>
+        <item>@color/red35</item>
+
+        <item>@color/blue65</item>
+        <item>@color/blue60</item>
+        <item>@color/blue55</item>
+        <item>@color/blue50</item>
+        <item>@color/blue45</item>
+        <item>@color/blue40</item>
+        <item>@color/blue35</item>
+
+        <item>@color/green65</item>
+        <item>@color/green60</item>
+        <item>@color/green55</item>
+        <item>@color/green50</item>
+        <item>@color/green45</item>
+        <item>@color/green40</item>
+        <item>@color/green35</item>
+    </array>
+
     <array name="rainbow">
         <item>@color/color_red</item>
         <item>@color/color_pink</item>
@@ -132,4 +182,6 @@
         <item>@color/color_grey</item>
         <item>@color/color_blue_grey</item>
     </array>
+
+
 </resources>

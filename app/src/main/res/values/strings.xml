@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RGB Colors</string>
+    <string name="app_name">Coloric</string>
 
     <string name="chooseColor">Choose Color</string>
     <string name="sendColor">Send Color</string>
@@ -8,5 +8,17 @@
     <string name="disconnect">Disconnect</string>
 
     <string name="menu_bluetooth">Start Bluetooth</string>
+    <string name="options">Options</string>
+    <string name="brightness">Set Brightness</string>
+    <string name="colorWheel">Color Wheel</string>
+    <string name="colorGradient">Color Gradient</string>
+    <string name="selectedColor">Selected Color</string>
+
+    <string name="colorWhite">White</string>
+    <string name="colorRed">Red</string>
+    <string name="colorBlue">Blue</string>
+    <string name="colorGreen">Green</string>
+    <string name="switchOff">Switch Off</string>
+    <string name="strobe">Strobe</string>
 
 </resources>

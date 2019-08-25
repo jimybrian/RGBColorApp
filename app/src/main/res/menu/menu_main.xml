@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item  android:id="@+id/mnuConnect"
+            android:title="@string/menu_bluetooth"
+            android:icon="@drawable/ic_bluetooth_connected_black_24dp"
+            android:iconTint="@color/white"
+            app:showAsAction="always"/>
+
+</menu>

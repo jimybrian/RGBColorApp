@@ -21,4 +21,10 @@
     <string name="switchOff">Switch Off</string>
     <string name="strobe">Strobe</string>
 
+    <string name="wifi">Wifi</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="readings">Readings</string>
+    <string name="camera">CCTV</string>
+    <string name="color">Color Chooser</string>
+
 </resources>

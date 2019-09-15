@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item  android:id="@+id/navColor"
+            android:title="@string/color"
+            android:icon="@drawable/ic_color_lens_black_24dp"
+            android:iconTint="@color/white"
+            app:showAsAction="always"/>
+
+    <item  android:id="@+id/navBluetooth"
+            android:title="@string/bluetooth"
+            android:icon="@drawable/ic_bluetooth_black_24dp"
+            android:iconTint="@color/white"
+            android:visible="false"
+            app:showAsAction="always"/>
+
+
+    <item  android:id="@+id/navReadings"
+            android:title="@string/readings"
+            android:icon="@drawable/ic_insert_chart_black_24dp"
+            android:iconTint="@color/white"
+            app:showAsAction="always"/>
+
+    <item  android:id="@+id/navCCTV"
+            android:title="@string/camera"
+            android:icon="@drawable/ic_camera_alt_black_24dp"
+            android:iconTint="@color/white"
+            app:showAsAction="always"/>
+
+</menu>

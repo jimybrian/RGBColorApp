@@ -126,6 +126,18 @@
                             android:textStyle="bold"
                             android:text="@string/colorGradient"/>
 
+                    <CheckBox
+                            android:checked="true"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginBottom="4dp"
+                            style="@style/Widget.AppCompat.CompoundButton.CheckBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Save Color"
+                            android:textColor="@color/colorPrimary"
+                            android:id="@+id/rdoSaveColor" />
+
                 </LinearLayout>
 
                 <uz.shift.colorpicker.LineColorPicker

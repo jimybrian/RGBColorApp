@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
             android:allowBackup="true"
@@ -13,9 +14,10 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme.NoActionBar"
             tools:ignore="GoogleAppIndexingWarning"
+            android:networkSecurityConfig="@xml/network_config"
             android:name=".ColorBaseApp">
 
-        <activity android:name=".activities.MainActivity"
+        <activity android:name="com.dxworks.rgbcolors.ui.activities.MainActivity"
         android:theme="@style/AppTheme.NoActionBar"
         android:screenOrientation="portrait">
 <!--            <intent-filter>-->
@@ -25,7 +27,7 @@
 <!--            </intent-filter>-->
         </activity>
 
-        <activity android:name=".activities.MainBottomBarActivity"
+        <activity android:name="com.dxworks.rgbcolors.ui.activities.MainBottomBarActivity"
                 android:theme="@style/AppTheme.NoActionBar"
                 android:screenOrientation="portrait">
             <intent-filter>
@@ -35,11 +37,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activities.SplashActivity"
+        <activity android:name="com.dxworks.rgbcolors.ui.activities.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait" />
 
-        <receiver android:name=".activities.MainActivity$BluetoothReceiver"
+        <receiver android:name="com.dxworks.rgbcolors.ui.activities.MainActivity$BluetoothReceiver"
                 android:enabled="true"/>
     </application>
 

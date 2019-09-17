@@ -1,4 +1,4 @@
-package com.dxworks.rgbcolors.activities
+package com.dxworks.rgbcolors.ui.activities
 
 import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothSocket

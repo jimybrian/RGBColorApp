@@ -1,15 +1,15 @@
-package com.dxworks.rgbcolors.fragments
+package com.dxworks.rgbcolors.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
 import com.dxworks.rgbcolors.R
 import com.dxworks.rgbcolors.databinding.FragmentReadingsBinding
+import dagger.android.support.DaggerFragment
 
-class CameraFragment : Fragment(){
+class ReadingsFragment : DaggerFragment(){
 
     lateinit var binding:FragmentReadingsBinding
 

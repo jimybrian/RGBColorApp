@@ -1,4 +1,4 @@
-package com.dxworks.rgbcolors.activities
+package com.dxworks.rgbcolors.ui.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,12 +9,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.dxworks.rgbcolors.R
 import com.dxworks.rgbcolors.databinding.ActivityMain2Binding
-import com.dxworks.rgbcolors.fragments.BluetoothFragment
-import com.dxworks.rgbcolors.fragments.CameraFragment
-import com.dxworks.rgbcolors.fragments.ReadingsFragment
-import com.dxworks.rgbcolors.fragments.WifiFragment
+import com.dxworks.rgbcolors.ui.fragments.BluetoothFragment
+import com.dxworks.rgbcolors.ui.fragments.CameraFragment
+import com.dxworks.rgbcolors.ui.fragments.ReadingsFragment
+import com.dxworks.rgbcolors.ui.fragments.WifiFragment
+import dagger.android.support.DaggerAppCompatActivity
 
-class MainBottomBarActivity : AppCompatActivity(){
+class MainBottomBarActivity : DaggerAppCompatActivity(){
 
     lateinit var binding:ActivityMain2Binding
 

@@ -3,6 +3,7 @@ package com.dxworks.rgbcolors.utils
 import android.content.Context
 import android.content.SharedPreferences
 import com.dxworks.rgbcolors.R
+import javax.inject.Inject
 
 interface SharedPreferencesHelper{
 
@@ -13,15 +14,13 @@ interface SharedPreferencesHelper{
     fun saveBrightness(brightness:Int)
 }
 
-class SharedPreferences(context:Context) : SharedPreferencesHelper{
-    lateinit var shPref:SharedPreferences
-    lateinit var context:Context
+class SharedPreferences @Inject constructor(var context: Context) : SharedPreferencesHelper{
+    var shPref:SharedPreferences
     val shaPrefName:String = "com.dxworks.rgbcolors"
     val savedColor:String = "SAVED_COLOR"
     val savedBrightness:String = "SAVED_BRIGHTNESS"
 
     init {
-        this.context = context
         shPref = context.getSharedPreferences(shaPrefName, Context.MODE_PRIVATE)
     }
 

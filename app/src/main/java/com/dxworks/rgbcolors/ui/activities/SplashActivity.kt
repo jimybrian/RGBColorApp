@@ -1,4 +1,4 @@
-package com.dxworks.rgbcolors.activities
+package com.dxworks.rgbcolors.ui.activities
 
 import android.content.Intent
 import android.net.Uri

@@ -7,7 +7,7 @@
             android:layout_height="match_parent">
 
 
-        <androidx.cardview.widget.CardView
+        <LinearLayout
                 android:id="@+id/card_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -23,26 +23,8 @@
                         app:layout_constraintTop_toTopOf="parent"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:orientation="vertical"
                         android:id="@+id/llBUttons">
-
-                    <Button
-                            android:text="@string/connect"
-                            android:layout_margin="8dp"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:visibility="gone"
-                            android:id="@+id/btnConnect" />
-
-                    <Button
-                            android:text="@string/sendColor"
-                            android:layout_margin="8dp"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:visibility="gone"
-                            android:id="@+id/btnSendColor" />
 
                     <TextView
                             android:layout_marginLeft="8dp"
@@ -59,15 +41,25 @@
 
                 <com.flask.colorpicker.ColorPickerView
                         android:id="@+id/clrPicker"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="300dp"
+                        android:layout_height="300dp"
                         app:wheelType="CIRCLE"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/llBUttons"
+                        app:layout_constraintEnd_toStartOf="@id/clrPicker"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
                         android:layout_marginBottom="4dp"/>
+
+                <include
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/clrPicker"
+                        app:layout_constraintBottom_toBottomOf="@id/clrPicker"
+                        android:id="@+id/vwButtons"
+                        layout="@layout/view_buttons_vert"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        />
 
                 <LinearLayout
                         app:layout_constraintTop_toBottomOf="@id/clrPicker"
@@ -77,6 +69,7 @@
                         android:orientation="vertical">
 
                     <TextView
+                            android:visibility="gone"
                             android:layout_marginLeft="8dp"
                             android:layout_marginRight="8dp"
                             android:layout_marginBottom="4dp"
@@ -88,6 +81,7 @@
                             android:text="@string/brightness"/>
 
                     <SeekBar
+                            android:visibility="gone"
                             android:id="@+id/skBar"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -126,18 +120,6 @@
                             android:textStyle="bold"
                             android:text="@string/colorGradient"/>
 
-                    <CheckBox
-                            android:checked="true"
-                            android:layout_marginLeft="8dp"
-                            android:layout_marginRight="8dp"
-                            android:layout_marginBottom="4dp"
-                            style="@style/Widget.AppCompat.CompoundButton.CheckBox"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Save Color"
-                            android:textColor="@color/colorPrimary"
-                            android:id="@+id/rdoSaveColor" />
-
                 </LinearLayout>
 
                 <uz.shift.colorpicker.LineColorPicker
@@ -152,17 +134,28 @@
                         android:layout_marginBottom="4dp"
                         app:selectedColorIndex="3"/>
 
-                <include
-                        android:id="@+id/vwButtons"
-                        layout="@layout/view_buttons"
-                        android:layout_height="wrap_content"
-                        android:layout_width="match_parent"
+                <Button
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/lnColorPicker"
-                        app:layout_constraintBottom_toBottomOf="parent"/>
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="4dp"
+                        android:layout_width="320dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textStyle="bold"
+                        android:id="@+id/txConnectionStatus"
+                        android:background="@color/white"
+                        android:text="@string/disconnect"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </androidx.cardview.widget.CardView>
+        </LinearLayout>
     </ScrollView>
 
 </layout>

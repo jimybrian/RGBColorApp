@@ -10,10 +10,11 @@ import javax.inject.Singleton
 
 @Singleton
 @Component(modules = [AndroidInjectionModule::class,
-RetrofitModule::class,
-ActivityBindingModule::class,
-FragmentBindingModule::class,
-ApplicationModule::class])
+                        RetrofitModule::class,
+                        ActivityBindingModule::class,
+                        FragmentBindingModule::class,
+                        ApplicationModule::class,
+                        ViewModelModule::class])
 interface ApplicationComponent : AndroidInjector<ColorBaseApp> {
     override fun inject(instance: ColorBaseApp?)
 

@@ -88,4 +88,6 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
     implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
 
+    //Signalr
+    implementation 'com.smartarmenia:dotnetcoresignalrclientjava:1.14'
 }

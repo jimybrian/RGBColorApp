@@ -27,4 +27,7 @@
     <string name="camera">CCTV</string>
     <string name="color">Color Chooser</string>
 
+    <string name="connected">Connected</string>
+    <string name="disconnected">Disconnected</string>
+    <string name="connecting">Connecting...</string>
 </resources>

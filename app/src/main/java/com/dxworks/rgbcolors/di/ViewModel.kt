@@ -3,6 +3,7 @@ package com.dxworks.rgbcolors.di
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.dxworks.rgbcolors.models.ColorRepository
+import com.dxworks.rgbcolors.models.ReadingsRepository
 import dagger.Binds
 import dagger.MapKey
 import dagger.Module
@@ -45,8 +46,6 @@ constructor(private val creators: Map<Class<out ViewModel>, @JvmSuppressWildcard
 
 @Documented
 @MapKey
-//@Target(ElementType.METHOD)
-//@Retention(RetentionPolicy.RUNTIME)
 annotation class ViewModelKey(val value: KClass<out ViewModel>)
 
 @Module
@@ -55,7 +54,12 @@ abstract class ViewModelModule{
     @Binds
     @IntoMap
     @ViewModelKey(ColorRepository::class)
-    abstract fun bindTrotsViewModel(trotsViewModel: ColorRepository) : ViewModel
+    abstract fun bindColorViewModel(trotsViewModel: ColorRepository) : ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ReadingsRepository::class)
+    abstract fun bindReadingsViewModel(trotsViewModel: ReadingsRepository) : ViewModel
 
     @Binds
     abstract fun bindViewModelFactory(viewModelFactory: ViewModelFactory) : ViewModelProvider.Factory

@@ -90,4 +90,5 @@ dependencies {
 
     //Signalr
     implementation 'com.smartarmenia:dotnetcoresignalrclientjava:1.14'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0-alpha'
 }

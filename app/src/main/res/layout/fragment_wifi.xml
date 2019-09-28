@@ -131,15 +131,47 @@
                         app:colors="@array/rgbGradient"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
-                        android:layout_marginBottom="4dp"
-                        app:selectedColorIndex="3"/>
+                        android:layout_marginBottom="4dp" />
+
+                    <LinearLayout
+                            app:layout_constraintTop_toBottomOf="@id/lnColorPicker"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            android:id="@+id/llStrobe"
+                            android:layout_height="wrap_content">
+
+                        <Button
+                                android:layout_margin="4dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:id="@+id/btnStrobe"
+                                android:textColor="@color/color_red"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:textStyle="bold"
+                                android:background="@color/white"
+                                android:text="@string/strobe"
+                                android:layout_weight="1"/>
+
+                        <Button
+                                android:layout_margin="4dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:id="@+id/btnFade"
+                                android:text="@string/fade"
+                                android:textColor="@color/colorPrimary"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:textStyle="bold"
+                                android:background="@color/white"
+                                android:layout_weight="1"/>
+
+                    </LinearLayout>
 
                 <Button
                         android:layout_marginTop="4dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/lnColorPicker"
                         app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/llStrobe"
                         android:layout_gravity="center"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"

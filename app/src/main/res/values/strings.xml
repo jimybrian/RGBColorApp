@@ -19,8 +19,6 @@
     <string name="colorBlue">Blue</string>
     <string name="colorGreen">Green</string>
     <string name="switchOff">Switch Off</string>
-    <string name="strobe">Strobe</string>
-
     <string name="wifi">Wifi</string>
     <string name="bluetooth">Bluetooth</string>
     <string name="readings">Readings</string>
@@ -30,4 +28,10 @@
     <string name="connected">Connected</string>
     <string name="disconnected">Disconnected</string>
     <string name="connecting">Connecting...</string>
+    <string name="strobe">Strobe</string>
+    <string name="fade">Fade</string>
+    <string name="temperature">Temperature</string>
+    <string name="humidity">Humidity</string>
+    <string name="temp_trend">Temperature Trend</string>
+    <string name="humidity_trend">Humidity Trend</string>
 </resources>

@@ -121,6 +121,14 @@ class WifiFragment : DaggerFragment(){
             sendColor()
         }
 
+        binding.btnStrobe.setOnClickListener {
+            strobe()
+        }
+
+        binding.btnFade.setOnClickListener {
+            fade()
+        }
+
 
         binding.txConnectionStatus.text = (resources.getString(R.string.connecting))
         colorRepository.connectToHub()
@@ -163,6 +171,14 @@ class WifiFragment : DaggerFragment(){
 
     fun sendColor(){
         colorRepository.sendColor(pickedColor)
+    }
+
+    fun strobe(){
+        colorRepository.strobe()
+    }
+
+    fun fade(){
+        colorRepository.fade()
     }
 
 

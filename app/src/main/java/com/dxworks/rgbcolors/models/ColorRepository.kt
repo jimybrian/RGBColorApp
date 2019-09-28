@@ -90,4 +90,20 @@ class ColorRepository : ViewModel {
         }
     }
 
+    fun strobe(){
+        when {
+            isConnectedLiveData.value != null -> if (isConnectedLiveData.value!!) {
+                hubConnection.invoke("strobe")
+            }
+        }
+    }
+
+    fun fade(){
+        when {
+            isConnectedLiveData.value != null -> if (isConnectedLiveData.value!!) {
+                hubConnection.invoke("fade")
+            }
+        }
+    }
+
 }

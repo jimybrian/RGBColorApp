@@ -51,7 +51,7 @@ class ReadingsFragment : DaggerFragment(){
         val currentDate = UtilMethods.getFormattedDate()
         readingsRepo.getReadings(currentDate!!).observe(this, Observer {
             t ->
-            if(t != null){
+            if(t != null && t.isNotEmpty()){
                 binding.txTemperature.setText(t.first().temperature.toString() + " C")
                 binding.txHumidity.setText(t.first().humidity.toString() + " %")
 

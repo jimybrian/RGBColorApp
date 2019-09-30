@@ -11,9 +11,11 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
+import java.security.cert.X509Certificate
 import java.util.concurrent.TimeUnit
 import javax.inject.Named
 import javax.inject.Singleton
+import javax.net.ssl.*
 
 @Module
 class RetrofitModule{
@@ -38,7 +40,30 @@ class RetrofitModule{
     @Singleton
     @Provides
     fun provideOkHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor) : OkHttpClient {
+
+        val trustAllCerts = arrayOf<TrustManager>(object : X509TrustManager {
+            override fun getAcceptedIssuers(): Array<X509Certificate> {
+                return arrayOf<X509Certificate>()
+            }
+
+            override fun checkClientTrusted(
+                chain: Array<java.security.cert.X509Certificate>,
+                authType: String
+            ) {
+            }
+
+            override fun checkServerTrusted(
+                chain: Array<java.security.cert.X509Certificate>,
+                authType: String
+            ) {
+            }
+        })
+        val sslContext = SSLContext.getInstance("SSL")
+        sslContext.init(null, trustAllCerts, java.security.SecureRandom())
+
         return OkHttpClient.Builder()
+            .sslSocketFactory(sslContext.socketFactory)
+            .hostnameVerifier { hostname, session -> true }
             .addInterceptor(httpLoggingInterceptor)
             .readTimeout(60, TimeUnit.SECONDS)
             .connectTimeout(60, TimeUnit.SECONDS)

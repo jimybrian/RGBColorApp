@@ -14,7 +14,7 @@ import javax.inject.Inject
 class ColorRepository : ViewModel {
 
     lateinit var hubConnection:HubConnection
-    val hubUrl:String = "http://192.168.0.18:86/ColorHub"
+    val hubUrl:String = "http://167.99.88.230:5000/ColorHub"
     var keepConnAlive = false
 
     var isConnectedLiveData = MutableLiveData<Boolean>()

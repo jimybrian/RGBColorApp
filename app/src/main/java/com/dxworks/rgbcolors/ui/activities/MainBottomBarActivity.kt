@@ -68,7 +68,7 @@ class MainBottomBarActivity : DaggerAppCompatActivity(){
         return super.onCreateOptionsMenu(menu)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return super.onOptionsItemSelected(item)
     }
 

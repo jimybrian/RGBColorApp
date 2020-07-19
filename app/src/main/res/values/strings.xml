@@ -34,4 +34,6 @@
     <string name="humidity">Humidity</string>
     <string name="temp_trend">Temperature Trend</string>
     <string name="humidity_trend">Humidity Trend</string>
+    <string name="enable_disable_fingerprint">Enable/Disable Fingerprint</string>
+    <string name="place_your_finger_on_the_scanner">Place your finger on the scanner</string>
 </resources>

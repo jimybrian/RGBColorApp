@@ -1,10 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
+            android:layout_margin="32dp"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+        <ImageView
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                android:textColor="@color/black"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:tint="@color/black"
+                app:srcCompat="@drawable/ic_baseline_fingerprint_24"
+                android:id="@+id/imgFingerprint" />
+
+        <TextView
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView2"
+                android:text="@string/place_your_finger_on_the_scanner"/>
+
+        <RadioButton
+                android:layout_gravity="center"
+                android:id="@+id/rdFingerprint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/enable_disable_fingerprint"
+                android:textColor="@color/colorPrimary"
+                app:layout_constraintStart_toStartOf="parent"
+                android:buttonTint="@color/colorPrimary"
+                app:layout_constraintTop_toTopOf="parent" />
+
+    </LinearLayout>
 
 </layout>

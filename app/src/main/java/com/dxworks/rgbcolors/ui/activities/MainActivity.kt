@@ -142,7 +142,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }catch (e:Exception){
-            Log.d(tag, e.message)
+            Log.d(tag, e.message.orEmpty())
         }
     }
 
@@ -161,7 +161,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }catch (e:Exception){
-            Log.d(tag, e.message)
+            Log.d(tag, e.message.orEmpty())
         }
     }
 
@@ -178,7 +178,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }catch (e:Exception){
-            Log.d(tag, e.message)
+            Log.d(tag, e.message.orEmpty())
         }
     }
 
@@ -216,7 +216,7 @@ class MainActivity : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
         }catch (e:Exception){
-            Log.d(tag, e.message)
+            Log.d(tag, e.message.orEmpty())
         }
     }
 
@@ -241,8 +241,8 @@ class MainActivity : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        if(item?.itemId == R.id.mnuConnect){
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == R.id.mnuConnect){
             when(!isBluetoothEnabled) {
                 true -> {
                     btKit = BluetoothKit()
